@@ -1,0 +1,23 @@
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/categories">
+      <span class="dot"></span>
+      <span>YMShop</span>
+    </a>
+
+    <div class="nav">
+      <a class="btn small" href="/categories">🏠 หน้าหลัก</a>
+      <a class="btn small" href="/cart">🛒 ตะกร้า</a>
+      <a class="btn small" href="/history">📜 ประวัติ</a>
+      <a class="btn small primary" href="/topup">➕ เติมเงิน</a>
+
+      <% if (typeof balance !== "undefined") { %>
+        <div class="badge">ยอดเงิน: <b><%= Number(balance).toFixed(2) %></b> ฿</div>
+      <% } %>
+
+      <form action="/logout" method="POST" style="margin:0">
+        <button class="btn small danger" data-confirm="ออกจากระบบใช่ไหม?">ออกจากระบบ</button>
+      </form>
+    </div>
+  </div>
+</div>

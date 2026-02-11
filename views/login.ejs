@@ -1,0 +1,39 @@
+<div class="auth-wrap">
+  <div class="card auth-card">
+    <h1 class="h1">เข้าสู่ระบบ</h1>
+
+    <form class="form" action="/login" method="POST">
+      <div>
+        <label>ชื่อผู้ใช้งาน *</label>
+        <input class="input" type="text" name="username" placeholder="ชื่อผู้ใช้งาน" autocomplete="username" required />
+      </div>
+
+      <div>
+        <label>รหัสผ่าน *</label>
+        <input id="loginPassword" class="input" type="password" name="password" placeholder="รหัสผ่าน" autocomplete="current-password" required />
+
+        <label class="show-pass" style="margin-top:10px;">
+          <input type="checkbox" id="toggleLoginPassword">
+          แสดงรหัสผ่าน
+        </label>
+      </div>
+
+      <div class="center-actions">
+        <button class="btn primary" type="submit">เข้าสู่ระบบ</button>
+        <a class="link" href="/register">ยังไม่ได้เป็นสมาชิก? <span>สมัครสมาชิก</span></a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const toggle = document.getElementById("toggleLoginPassword");
+    const pass = document.getElementById("loginPassword");
+    if (!toggle || !pass) return;
+
+    toggle.addEventListener("change", function () {
+      pass.type = this.checked ? "text" : "password";
+    });
+  })();
+</script>

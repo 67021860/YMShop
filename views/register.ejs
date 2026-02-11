@@ -1,0 +1,56 @@
+<div class="auth-wrap">
+  <div class="card auth-card">
+    <h1 class="h1">สมัครสมาชิก</h1>
+
+    <form class="form" action="/register" method="POST">
+      <div>
+        <label>ชื่อผู้ใช้งาน *</label>
+        <input class="input" type="text" name="username" placeholder="Username" autocomplete="username" required />
+        <div class="helper">
+          ใช้ได้เฉพาะตัวอักษร (a-z) ตัวเลข (0-9) และ _ ต้องขึ้นต้นด้วยตัวอักษร (ยาว 4-20)
+        </div>
+      </div>
+
+      <div>
+        <label>รหัสผ่าน *</label>
+        <input type="password" name="password" id="regPassword" class="input" placeholder="รหัสผ่าน" required />
+        <div class="helper">
+          รหัสผ่านควรยาว 6-30 ตัวอักษร
+        </div>
+      </div>
+
+      <div>
+        <label>ยืนยันรหัสผ่าน *</label>
+        <input type="password" name="confirm_password" id="regConfirmPassword" class="input" placeholder="ยืนยันรหัสผ่าน" required />
+        <div class="helper">
+          กรุณากรอกรหัสผ่านเดิมซ้ำอีกครั้งให้ตรงกัน
+        </div>
+
+        <label class="show-pass" style="margin-top:10px;">
+          <input type="checkbox" id="toggleRegisterPassword">
+          แสดงรหัสผ่าน
+        </label>
+      </div>
+
+      <div class="center-actions">
+        <button class="btn primary" type="submit">สมัครสมาชิก</button>
+        <a class="link" href="/login">เป็นสมาชิกอยู่แล้ว? <span>เข้าสู่ระบบ</span></a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const toggle = document.getElementById("toggleRegisterPassword");
+    const pass1 = document.getElementById("regPassword");
+    const pass2 = document.getElementById("regConfirmPassword");
+    if (!toggle || !pass1 || !pass2) return;
+
+    toggle.addEventListener("change", function () {
+      const type = this.checked ? "text" : "password";
+      pass1.type = type;
+      pass2.type = type;
+    });
+  })();
+</script>
