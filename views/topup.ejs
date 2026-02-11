@@ -1,0 +1,17 @@
+<div class="container">
+  <h1 class="h1" style="text-align:left; margin-bottom:14px;">เติมเงิน</h1>
+
+  <div class="card" style="padding:18px;">
+    <div class="badge" style="display:inline-block; margin-bottom:12px;">
+      ยอดเงินปัจจุบัน: <b><%= Number(balance).toFixed(2) %></b> ฿
+    </div>
+
+    <form class="form" action="/topup" method="POST">
+      <div>
+        <label>จำนวนเงินที่ต้องการเติม *</label>
+        <input class="input" type="number" name="amount" min="1" step="1" placeholder="เช่น 100" required />
+      </div>
+      <button class="btn primary" type="submit">เติมเงิน</button>
+    </form>
+  </div>
+</div>
